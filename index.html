@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$monkey - Monkey Ladder Effect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fredoka', sans-serif;
+      background: url('https://i.imgur.com/ee4EXSz.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(252, 186, 33, 0.4);
+      z-index: -1;
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      font-size: 6em;
+      margin: 20px 0;
+      color: white;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      margin: 50px 0;
+      flex-wrap: wrap;
+    }
+
+    .ape-button, .sell-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fredoka', sans-serif;
+      width: 350px;
+      height: 350px;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 14px rgba(0,0,0,0.5), 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      position: relative;
+    }
+
+    .ape-button {
+      background: linear-gradient(to bottom, #3ddc84, #27ae60);
+      box-shadow: 0 14px #1e8449, 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .ape-button:active {
+      transform: translateY(6px);
+      box-shadow: 0 6px #1e8449;
+    }
+
+    .sell-button {
+      background: linear-gradient(to bottom, #e74c3c, #c0392b);
+      box-shadow: 0 14px #922b21, 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .sell-button:active {
+      transform: translateY(6px);
+      box-shadow: 0 6px #922b21;
+    }
+
+    .ape-button:hover,
+    .sell-button:hover {
+      transform: scale(1.08);
+    }
+
+    .theory {
+      max-width: 700px;
+      margin: 40px auto;
+      font-size: 1.2em;
+      line-height: 1.6;
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+      background-image: url('https://i.imgur.com/ee4EXSz.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-blend-mode: overlay;
+      background-color: rgba(252, 186, 33, 0.8);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .theory h2 {
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    .theory p {
+      background: rgba(60, 40, 20, 0.75);
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 1;
+      transform: translate(0, 0);
+      transition: transform 1s ease-out, opacity 1s ease-out;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .social-box {
+      max-width: 600px;
+      margin: 60px auto;
+      font-size: 1.2em;
+      line-height: 1.6;
+      padding: 25px;
+      border-radius: 12px;
+      background-color: rgba(60, 40, 20, 0.8);
+      color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .twitter-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .twitter-link img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .twitter-link a {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: white;
+      text-decoration: none;
+    }
+
+    .twitter-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay"></div>
+
+  <div class="header">
+    <h1>$monkey</h1>
+  </div>
+
+  <div class="button-container">
+    <button class="ape-button" onclick="playMonkeySound()">APE 🍌</button>
+    <button class="sell-button" onclick="playSellSound()">SELL 🧨</button>
+  </div>
+
+  <div class="theory">
+    <h2>THE MONKEY LADDER EXPERIMENT</h2>
+    <p>The monkey ladder experiment shows how people follow habits without knowing why. One monkey gets punished for climbing the ladder, so the others stop trying. New monkeys come in and avoid the ladder too, not because they understand, but because “that’s just what everyone does.”</p>
+    <p>In crypto, it’s the same with buying and holding. Most people ape in because others are doing it, then they hold because that’s what they were told, even if the reason no longer makes sense.</p>
+    <p>Nobody asks why, they just do what the last guy did. If enough buyers follow blindly, the $monkey might actually go up.</p>
+  </div>
+
+  <div class="social-box">
+    <h2>FOLLOW THE EXPERIMENT 🧪</h2>
+    <div class="twitter-link">
+      <img src="https://i.imgur.com/XRqfSdX.png" alt="Monkey Icon">
+      <a href="https://x.com/themonkeyladder" target="_blank">@themonkeyladder</a>
+    </div>
+  </div>
+
+  <audio id="monkeySound">
+    <source src="https://cdn.pixabay.com/download/audio/2022/12/06/audio_8b07d5599d.mp3?filename=monkey-128368.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="sellSound">
+    <source src="https://us-tuna-sounds-files.voicemod.net/fb18d676-c816-4624-9cd8-5fcc39760f2a-1660846807746.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function playMonkeySound() {
+      const sound = document.getElementById("monkeySound");
+      sound.currentTime = 0;
+      sound.play().catch(error => console.error("Playback failed:", error));
+      const button = document.querySelector(".ape-button");
+      launchEmojis('🍌', button);
+    }
+
+    function playSellSound() {
+      const sound = document.getElementById("sellSound");
+      sound.currentTime = 0;
+      sound.play().catch(error => console.error("Playback failed:", error));
+      setTimeout(() => {
+        sound.pause();
+        sound.currentTime = 0;
+      }, 4000);
+      const button = document.querySelector(".sell-button");
+      launchEmojis('💥', button);
+    }
+
+    function launchEmojis(symbol, buttonElement) {
+      const rect = buttonElement.getBoundingClientRect();
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
+
+      const originX = rect.left + scrollLeft + rect.width / 2;
+      const originY = rect.top + scrollTop + rect.height / 2;
+
+      for (let i = 0; i < 12; i++) {
+        const emoji = document.createElement('div');
+        emoji.classList.add('emoji');
+        emoji.textContent = symbol;
+
+        const angle = (Math.PI * 2 * i) / 12;
+        const distance = 120 + Math.random() * 30;
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
+
+        emoji.style.left = `${originX - 16}px`;
+        emoji.style.top = `${originY - 16}px`;
+
+        document.body.appendChild(emoji);
+
+        requestAnimationFrame(() => {
+          emoji.style.transform = `translate(${x}px, ${y}px) scale(0.5)`;
+          emoji.style.opacity = '0';
+        });
+
+        setTimeout(() => {
+          emoji.remove();
+        }, 1000);
+      }
+    }
+  </script>
+
+</body>
+</html>
